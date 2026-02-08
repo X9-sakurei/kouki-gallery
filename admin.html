@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Photo Gallery</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Admin Login Screen -->
+    <div id="admin-login-screen" class="auth-container">
+        <div class="auth-card glass">
+            <h1>Admin Entry</h1>
+            <div class="input-group">
+                <input type="password" id="admin-pass-input" placeholder="Admin PIN"
+                    onkeypress="if(event.key==='Enter') checkAdminPassword()">
+            </div>
+            <button onclick="checkAdminPassword()">管理者ログイン</button>
+            <p id="admin-error" class="error-msg"></p>
+        </div>
+        <a href="index.html" style="margin-top: 20px; color: var(--text-secondary); text-decoration: none;">&larr; Back
+            to Site</a>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="admin-dashboard-screen" class="admin-container hidden">
+        <header style="margin-bottom: 40px; display: flex; justify-content: space-between; align-items: center;">
+            <h2>Admin Dashboard</h2>
+            <button onclick="sessionStorage.clear(); location.reload();"
+                style="width: auto; padding: 8px 16px; background: rgba(255,255,255,0.1); color: white;">ログアウト</button>
+        </header>
+
+        <section class="upload-section glass">
+            <h3>写真をアップロード</h3>
+            <p style="color: var(--text-secondary); margin-bottom: 20px;">複数の写真を選択してアップロードできます</p>
+            <label class="custom-file-btn" for="file-input">
+                画像を選択
+            </label>
+            <input type="file" id="file-input" accept="image/*" multiple onchange="handleUpload(event)">
+        </section>
+
+        <h3>管理中の写真</h3>
+        <div id="admin-items" class="admin-grid" style="margin-top: 20px;">
+            <!-- Admin items dynamically rendered here -->
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

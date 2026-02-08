@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Landing Password Screen -->
+    <div id="landing-screen" class="auth-container">
+        <div class="auth-card glass">
+            <h1>Photo Gallery</h1>
+            <p style="color: var(--text-secondary); margin-bottom: 24px;">閲覧するにはパスワードを入力してください</p>
+            <div class="input-group">
+                <input type="password" id="site-pass-input" placeholder="パスワードを入力"
+                    onkeypress="if(event.key==='Enter') checkSitePassword()">
+            </div>
+            <button onclick="checkSitePassword()">入場する</button>
+            <p id="site-error" class="error-msg"></p>
+        </div>
+        <a href="admin.html"
+            style="margin-top: 40px; color: var(--text-secondary); text-decoration: none; font-size: 0.8rem; opacity: 0.3;">Admin</a>
+    </div>
+
+    <!-- Main Gallery Screen -->
+    <div id="gallery-screen" class="hidden">
+        <header class="gallery-header">
+            <h1>Memories</h1>
+            <p style="color: var(--text-secondary);">Shared Moments</p>
+        </header>
+
+        <main id="gallery-items" class="gallery-grid">
+            <!-- Photos dynamically rendered here -->
+        </main>
+
+        <footer style="padding: 40px; text-align: center; color: var(--text-secondary); font-size: 0.875rem;">
+            &copy; 2024 Photo Gallery
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
