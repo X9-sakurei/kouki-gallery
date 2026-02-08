@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kouki Gallery - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body id="dashboard-page">
+    <header>
+        <div class="logo">KOUKI GALLERY <span style="font-size: 0.8rem; color: var(--primary-color);">ADMIN</span></div>
+        <div style="display: flex; align-items: center;">
+            <div class="lang-switch">
+                <button id="lang-ja" class="active">JP</button>
+                <button id="lang-en">EN</button>
+            </div>
+            <div class="auth-nav" style="margin-left: 20px;">
+                <button id="btn-logout" class="secondary"
+                    style="font-size: 0.8rem; padding: 5px 10px; width: auto;">ログアウト</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div
+            style="background-color: var(--surface-color); padding: 20px; border-radius: var(--border-radius); margin-bottom: 20px;">
+            <h3>Admin Actions</h3>
+            <div class="dashboard-actions">
+                <label for="upload-input" class="custom-file-upload">
+                    <input type="file" id="upload-input" accept="image/*" style="display: none;">
+                    <button id="btn-upload" onclick="document.getElementById('upload-input').click()">
+                        <span id="btn-upload-label">写真をアップロード</span> 📸
+                    </button>
+                </label>
+            </div>
+            <p id="txt-storage-warning" style="font-size: 0.8rem; color: #cf6679;">Note: Upladed photos are stored in
+                YOUR browser's
+                LocalStorage. They will disappear if you clear your data or use a different device.</p>
+        </div>
+
+        <h2 id="txt-gallery-title" style="margin-top: 20px;">Gallery Preview</h2>
+        <div id="gallery-grid" class="gallery-grid">
+            <!-- Photos will be injected here -->
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
