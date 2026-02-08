@@ -1,0 +1,237 @@
+:root {
+    --bg-color: #050505;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --accent-color: #ffffff;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a0;
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --error-color: #ff4d4d;
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-family);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Glassmorphism utility */
+.glass {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+}
+
+/* Auth Screens */
+.auth-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    text-align: center;
+}
+
+.auth-card {
+    padding: 40px;
+    width: 100%;
+    max-width: 400px;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.auth-card h1 {
+    font-size: 2rem;
+    margin-bottom: 24px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+input {
+    width: 100%;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    border-color: var(--accent-color);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--accent-color);
+    color: black;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.error-msg {
+    color: var(--error-color);
+    font-size: 0.875rem;
+    margin-top: 10px;
+    display: none;
+}
+
+/* Gallery Layout */
+.gallery-header {
+    padding: 40px 20px;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.photo-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 4/5;
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.photo-card:hover {
+    transform: scale(1.02);
+}
+
+.photo-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.photo-card:hover .photo-overlay {
+    opacity: 1;
+}
+
+/* Admin Dashboard */
+.admin-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.upload-section {
+    padding: 30px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.file-input-wrapper {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+#file-input {
+    display: none;
+}
+
+.custom-file-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: transparent;
+    border: 1px dashed var(--glass-border);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.admin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.admin-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.delete-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: var(--error-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    cursor: pointer;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 600px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    .auth-card {
+        padding: 24px;
+    }
+}
