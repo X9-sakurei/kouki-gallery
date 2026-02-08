@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kouki Gallery - Admin Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body id="admin-login-page">
+    <div class="lang-switch">
+        <button id="lang-ja" class="active">JP</button>
+        <button id="lang-en">EN</button>
+    </div>
+
+    <div class="login-container">
+        <h1 class="logo mb-4">KOUKI GALLERY</h1>
+        <h2>Admin Login</h2>
+
+        <div style="max-width: 300px; width: 100%; margin-top: 20px;">
+            <p id="txt-enter-pass">パスワードを入力してください</p> <!-- Reusing ID for localization -->
+            <input type="password" id="input-pass" placeholder="Password">
+            <button id="btn-submit">Login</button>
+            <p id="error-msg" style="color: #cf6679; display: none; margin-top: 10px; font-size: 0.9rem;"></p>
+        </div>
+
+        <div style="margin-top: 20px;">
+            <a href="index.html" style="color: var(--secondary-text-color); text-decoration: none; font-size: 0.9rem;">←
+                Back to Home</a>
+        </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>
